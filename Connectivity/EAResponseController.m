@@ -85,12 +85,21 @@ static EAResponseController *sharedInstance = nil;
     tableController.isDataView = NO;
 
     
-    if ([message hasPrefix:@"OPEN_APP_WITH_URL: = "] || [message hasPrefix:@"RUN_COMMAND: "] || [message hasSuffix:@"(null)"]) {
+    if ([message hasPrefix:@"\"<"] || [message hasPrefix:@"OPEN_APP_WITH_URL: = "] || [message hasPrefix:@"RUN_COMMAND: "] || [message hasSuffix:@"(null)"]) {
         
         return;
     }
     
+    if ([message hasPrefix:@"\n\n\n\n\n"]) {
+        message = [message stringByReplacingOccurrencesOfString:@"\n\n\n\n\n\n" withString:@""];
+    }
+    
+    if ([message isEqualToString:@""]) {
+        message = @"I don't know";
+    }
+    
     [messagesArray addObject:message];
+        
     
     
     //NSIndexPath *newIndexPath = [NSIndexPath indexPathForRow:[messagesArray count]-1 inSection:0];

@@ -122,6 +122,8 @@
 @property (nonatomic,strong) IBOutlet UITableView* table;
 @property (nonatomic,weak) NSMutableArray* listOfMessages;
 
+@property (nonatomic,strong) AVAudioPlayer* micPlayer;
+
 //@property (nonatomic,assign) EAServerReach* serverReach;
 
 @end

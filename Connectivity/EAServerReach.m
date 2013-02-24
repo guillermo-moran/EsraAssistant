@@ -92,15 +92,16 @@
     NSString* responseStr = [response stringByReplacingOccurrencesOfString:@"<_NICKNAME_>" withString:[[NSUserDefaults standardUserDefaults] objectForKey:@"NickName"]];
     
     
-    
+    /*
     if ([response isEqualToString:@""]) {
          response = @"I forgot";
     }
+    */
     
     mainController = [[ViewController alloc] init];
     
     EAResponseController* meh = [EAResponseController sharedInstance];
-    [meh addMessage:responseStr];
+    [meh addMessage:[NSString stringWithFormat:@"\"%@\"", response]];
                                  
     [mainController handleServerResult:responseStr];
     

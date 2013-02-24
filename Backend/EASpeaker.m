@@ -11,7 +11,7 @@
 
 @implementation EASpeaker
 
--(void)speak:(NSString *)messageToSpeak {
++(void)speak:(NSString *)messageToSpeak {
     
     VSSpeechSynthesizer* speaker;
     

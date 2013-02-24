@@ -10,6 +10,6 @@
 
 @interface EASpeaker : NSObject {}
 
--(void)speak:(NSString*)messageToSpeak;
++(void)speak:(NSString*)messageToSpeak;
 
 @end

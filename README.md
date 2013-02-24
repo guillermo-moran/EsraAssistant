@@ -18,9 +18,9 @@ This version of Esra Assistant, however, is the heavily revamped and entirely re
 ##Known Issues
 
 - The loader does not disappear from the view after it's finished loading
-- The loader is out of place on 5" screens
 - Esra can only listen to you once, it no longer listens after listening once (related to   	issue #1?)
-- Microphone button sounds (listen/stop listen) do not play
+- Esra does not speak
+- "Show me a picture" does not work
 
 ##Licensing
 

@@ -27,38 +27,55 @@
 #import "EAServerReach.h"
 
 @implementation ViewController
-@synthesize table, cell, listOfMessages, isDataView, isResponse, micIndicator;
-
+@synthesize table, cell, listOfMessages, isDataView, isResponse, micIndicator, micPlayer;
 
  
 -(void)startMicAnimation {
 
-    /*
+    
     NSLog(@"Started Mic Animation");
     
     if (!UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
         
-        self.micIndicator = [[EALoadingView alloc] init];
+        if ([UIScreen mainScreen].bounds.size.height == 568) {
+            //iPhone 5
+            micIndicator = [[EALoadingView alloc] init];
+            micIndicator.frame = CGRectMake(133, 483, 55 ,55);
+            [micIndicator setTag:1337];
+            [self.view addSubview:micIndicator];
+            [micIndicator animate];
+            
+        }
+        else {
+            //Regular iPhone
+            micIndicator = [[EALoadingView alloc] init];
+            micIndicator.frame = CGRectMake(133, 395, 55 ,55);
+            [micIndicator setTag:1337];
+            [self.view addSubview:micIndicator];
+            [micIndicator animate];
+            
+        }
         
-        self.micIndicator.frame = CGRectMake(133, 395, 55 ,55);
-        [self.view addSubview:micIndicator];
-        [self.micIndicator animate];
+        
     }
     else {
-        self.micIndicator = [[EALoadingView alloc] init];
-        self.micIndicator.frame = CGRectMake(357, 936, 54 ,54);
+        
+        micIndicator = [[EALoadingView alloc] init];
+        micIndicator.frame = CGRectMake(357, 936, 54 ,54);
+        [micIndicator setTag:1337];
         [self.view addSubview:micIndicator];
-        [self.micIndicator animate];
+        [micIndicator animate];
+        
+        
     }
-     */
+     
     isLoading = YES;
 }
 -(void)stopMicAnimation {
     NSLog(@"Stopped Mic Animation");
-    
-    
-    [self.micIndicator setHidden:YES];
     isLoading = NO;
+    [micIndicator removeFromSuperview];
+    //micIndicator = nil;
 }
 
 
@@ -143,9 +160,8 @@
     
     NSString* finalTime = [NSString stringWithFormat:@"It is %@", timeString];
     
-    EASpeaker* speaker = [[EASpeaker alloc] init];
-    
-    [speaker speak:finalTime];
+    responseController = [EAResponseController sharedInstance];
+    [responseController addMessage:finalTime];
     
     
     
@@ -160,7 +176,8 @@
     
   
     NSString* finalDate = [NSString stringWithFormat:@"Today it is %@", dateString];
-    [self speak:finalDate];
+    responseController = [EAResponseController sharedInstance];
+    [responseController addMessage:finalDate];
 }
 
 -(IBAction)showTextBox:(id)sender {
@@ -399,10 +416,10 @@
             NSLog(@"Stopped Recording");
             NSString* recorderSound = [[NSBundle mainBundle] pathForResource:@"stop-rec" ofType:@"mp3"];
             NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: recorderSound];
-            AVAudioPlayer* player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
-            [player setDelegate:self];
-            [player prepareToPlay];
-            [player play];
+            micPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+            [micPlayer setDelegate:self];
+            [micPlayer prepareToPlay];
+            [micPlayer play];
             
             [micDetector setProgress:0];
             
@@ -420,10 +437,10 @@
             NSLog(@"Started Recording");
             NSString* recorderSound = [[NSBundle mainBundle] pathForResource:@"start-rec" ofType:@"mp3"];
             NSURL *soundURL = [[NSURL alloc] initFileURLWithPath: recorderSound];
-            AVAudioPlayer* player = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
-            [player setDelegate:self];
-            [player prepareToPlay];
-            [player play];
+            micPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:soundURL error:&error];
+            [micPlayer setDelegate:self];
+            [micPlayer prepareToPlay];
+            [micPlayer play];
             
             [recorder record];
             
@@ -511,8 +528,8 @@
         }
     }
     
-    EASpeaker* speaker = [[EASpeaker alloc] init];
-    [speaker speak:response];
+    
+    [EASpeaker speak:response];
     
     
     //[self addMessage:response];
@@ -535,30 +552,21 @@
         responseController = [EAResponseController sharedInstance];
         [responseController addMessage:[[NSString stringWithFormat:@"It is currently %@ degrees, %@, in %@",weatherData.currentTemp, weatherData.currentConditions, weatherData.city] copy]];
         
-        
-        //NSString* formattedResponse = [response stringByReplacingOccurrencesOfString:@"<Get_Weather>: " withString:@""];
-        //NSString* addedDegrees = [formattedResponse stringByReplacingOccurrencesOfString:@"<DEGREES>" withString:weatherData.currentTemp];
-        //NSString* addedCity = [addedDegrees stringByReplacingOccurrencesOfString:@"<CITY>" withString:weatherData.city];
-        //NSString* addedConditions = [addedDegrees stringByReplacingOccurrencesOfString:@"<CONDITIONS>" withString:weatherData.currentConditions];
-        
-        //NSString* currentWeather = addedConditions;
-        
-        //[self speak:currentWeather];
-        //[self addMessage:currentWeather];
+       
 
         [self addData:weatherData.view message:nil];
-        response = @"";
+        
     }
     else if ([response hasPrefix:@"<!DOCTYPE HTML>"]) {
         response = @"The server is unreachable at this time, please try again later";
     }
     else if ([response hasPrefix:@"<Get_Date>"]) {
         [self getDate];
-        response = @"";
+        
     }
     else if ([response hasPrefix:@"<Get_Time>"]) {
         
-        response = @"";
+        
         
         [self getTime];
     
@@ -573,13 +581,13 @@
     }
     else if ([response hasPrefix:@"<Show_Image>"]) {
         
-        response = @"";
+        
         
         NSString* imageURLString = [response stringByReplacingOccurrencesOfString:@"<Show_Image>: " withString:@""];
         
-        EAImageData* imageData;
+        NSLog(@"Showing Image: %@", imageURLString);
         
-        imageData = [[EAImageData alloc] initWithNibName:@"EAImageData" bundle:nil];
+        EAImageData* imageData = [[EAImageData alloc] initWithNibName:@"EAImageData" bundle:nil];
         
         [self addData:imageData.view message:nil];
         
@@ -844,8 +852,6 @@
     [self.view sendSubviewToBack:table];
     [self.view sendSubviewToBack:BGImage];
     
-    [self startMicAnimation];
-    //[self stopMicAnimation];
     [super viewDidLoad];
 }
 

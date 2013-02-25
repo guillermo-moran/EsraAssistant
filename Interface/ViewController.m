@@ -27,32 +27,53 @@
 #import "EAServerReach.h"
 
 @implementation ViewController
-@synthesize table, cell, listOfMessages, isDataView, isResponse, micIndicator, micPlayer;
+@synthesize table, cell, isDataView, isResponse, micPlayer;
 
- 
--(void)startMicAnimation {
-
+-(void)addLoaderToView {
     
-    NSLog(@"Started Mic Animation");
+    spinner = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"spinner.png"]];
+    
+    spinner.animationImages = [NSArray arrayWithObjects:
+                            [UIImage imageNamed:@"spinner.png"],
+                            [UIImage imageNamed:@"spinner1.png"],
+                            [UIImage imageNamed:@"spinner2.png"],
+                            [UIImage imageNamed:@"spinner3.png"],
+                            [UIImage imageNamed:@"spinner4.png"],
+                            [UIImage imageNamed:@"spinner5.png"],
+                            [UIImage imageNamed:@"spinner6.png"],
+                            [UIImage imageNamed:@"spinner7.png"],
+                            [UIImage imageNamed:@"spinner7.png"],[UIImage imageNamed:@"spinner8.png"],
+                            nil];
+    
+    
+    //Set the duration of the animation (play with it
+    //until it looks nice for you)
+    spinner.animationDuration = 0.5;
+    
+    //Start the animation
+    [spinner startAnimating];
+    
     
     if (!UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
-        
+     
         if ([UIScreen mainScreen].bounds.size.height == 568) {
             //iPhone 5
-            micIndicator = [[EALoadingView alloc] init];
-            micIndicator.frame = CGRectMake(133, 483, 55 ,55);
-            [micIndicator setTag:1337];
-            [self.view addSubview:micIndicator];
-            [micIndicator animate];
+            
+            //micIndicator = [[EALoadingView alloc] init];
+            spinner.frame = CGRectMake(133, 483, 55 ,55);
+            [spinner setTag:1337];
+            [self.view addSubview:spinner];
+            
             
         }
         else {
             //Regular iPhone
-            micIndicator = [[EALoadingView alloc] init];
-            micIndicator.frame = CGRectMake(133, 395, 55 ,55);
-            [micIndicator setTag:1337];
-            [self.view addSubview:micIndicator];
-            [micIndicator animate];
+            
+            //micIndicator = [[EALoadingView alloc] init];
+            spinner.frame = CGRectMake(133, 395, 55 ,55);
+            [spinner setTag:1337];
+            [self.view addSubview:spinner];
+            
             
         }
         
@@ -60,22 +81,32 @@
     }
     else {
         
-        micIndicator = [[EALoadingView alloc] init];
-        micIndicator.frame = CGRectMake(357, 936, 54 ,54);
-        [micIndicator setTag:1337];
-        [self.view addSubview:micIndicator];
-        [micIndicator animate];
-        
-        
+        //micIndicator = [[EALoadingView alloc] init];
+        spinner.frame = CGRectMake(357, 936, 54 ,54);
+        [spinner setTag:1337];
+        [self.view addSubview:spinner];
+
     }
+    [spinner setHidden:YES];
      
+}
+
+-(void)startMicAnimation {
+
+    //[self addLoaderToView];
+    
+    NSLog(@"Started Mic Animation");
+    [spinner setHidden:NO];
     isLoading = YES;
 }
 -(void)stopMicAnimation {
+    
+    spinner = nil;
+    
     NSLog(@"Stopped Mic Animation");
     isLoading = NO;
-    [micIndicator removeFromSuperview];
-    //micIndicator = nil;
+    [spinner setHidden:YES];
+    
 }
 
 
@@ -625,6 +656,7 @@
     [self stopMicAnimation];
     
     
+    
 }
 
 
@@ -757,7 +789,7 @@
 - (void)viewDidLoad
 {
     
-    
+    NSLog(@"View Did Load!");
     
     isLoading = NO;
     
@@ -838,19 +870,18 @@
         [timeView addSubview:clockData.view];
     }
     
-    self.micIndicator = [[EALoadingView alloc] init];
     
-    self.micIndicator.frame = CGRectMake(133, 395, 55 ,55);
-    [self.view addSubview:micIndicator];
-    [self.micIndicator animate];
-    [self.micIndicator setHidden:YES];
-    
+   
     micDetector.transform=CGAffineTransformMakeRotation(M_PI/-2);
     [self.view addSubview:micDetector];
     [self.view sendSubviewToBack:micDetector];
     [self.view sendSubviewToBack:micButton];
     [self.view sendSubviewToBack:table];
     [self.view sendSubviewToBack:BGImage];
+    
+    [self addLoaderToView];
+    
+    
     
     [super viewDidLoad];
 }

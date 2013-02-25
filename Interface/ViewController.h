@@ -15,7 +15,7 @@
 //#import "TableCells.h"
 
 #import "MicProgressView.h"
-#import "EALoadingView.h"
+#import "EAMicSpinner.h"
 
 
 @class TableCells, EAServerReach, EAResponseController;
@@ -39,6 +39,9 @@
     
     //Microphone
     MicProgressView* micDetector;
+    UIImageView* spinner;
+    
+    
     
     
     //Table View
@@ -46,7 +49,7 @@
     IBOutlet UITableViewCell* Cells;
     EAResponseController* responseController;
     
-    NSString* stringToAdd;
+    //NSString* stringToAdd;
     
     //Weather
     IBOutlet UILabel* conditions;
@@ -78,6 +81,7 @@
 //Microphone
 -(void)startMicAnimation;
 -(void)stopMicAnimation;
+-(void)addLoaderToView;
 
 //Voice Recognition
 -(IBAction)beginListening;
@@ -117,13 +121,10 @@
 @property (nonatomic) BOOL isDataView;
 @property (nonatomic) BOOL isResponse;
 
-@property (nonatomic,retain) EALoadingView* micIndicator;
 @property (nonatomic,strong) TableCells* cell;
 @property (nonatomic,strong) IBOutlet UITableView* table;
-@property (nonatomic,weak) NSMutableArray* listOfMessages;
 
 @property (nonatomic,strong) AVAudioPlayer* micPlayer;
 
-//@property (nonatomic,assign) EAServerReach* serverReach;
 
 @end

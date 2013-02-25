@@ -87,8 +87,6 @@
 		FD9551D016A1F9C0002B591E /* EAClockData.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD95515D16A1F9C0002B591E /* EAClockData.xib */; };
 		FD9551D116A1F9C0002B591E /* EAImageData.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95515F16A1F9C0002B591E /* EAImageData.m */; };
 		FD9551D216A1F9C0002B591E /* EAImageData.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD95516016A1F9C0002B591E /* EAImageData.xib */; };
-		FD9551D316A1F9C0002B591E /* EALoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95516216A1F9C0002B591E /* EALoadingView.m */; };
-		FD9551D416A1F9C0002B591E /* EALoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD95516316A1F9C0002B591E /* EALoadingView.xib */; };
 		FD9551D516A1F9C0002B591E /* EAWeatherData.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95516516A1F9C0002B591E /* EAWeatherData.m */; };
 		FD9551D616A1F9C0002B591E /* EAWeatherData.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD95516616A1F9C0002B591E /* EAWeatherData.xib */; };
 		FD9551D716A1F9C0002B591E /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = FD95516716A1F9C0002B591E /* InfoPlist.strings */; };
@@ -203,9 +201,6 @@
 		FD95515E16A1F9C0002B591E /* EAImageData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAImageData.h; sourceTree = "<group>"; };
 		FD95515F16A1F9C0002B591E /* EAImageData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAImageData.m; sourceTree = "<group>"; };
 		FD95516016A1F9C0002B591E /* EAImageData.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAImageData.xib; sourceTree = "<group>"; };
-		FD95516116A1F9C0002B591E /* EALoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EALoadingView.h; sourceTree = "<group>"; };
-		FD95516216A1F9C0002B591E /* EALoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EALoadingView.m; sourceTree = "<group>"; };
-		FD95516316A1F9C0002B591E /* EALoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EALoadingView.xib; sourceTree = "<group>"; };
 		FD95516416A1F9C0002B591E /* EAWeatherData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAWeatherData.h; sourceTree = "<group>"; };
 		FD95516516A1F9C0002B591E /* EAWeatherData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAWeatherData.m; sourceTree = "<group>"; };
 		FD95516616A1F9C0002B591E /* EAWeatherData.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = EAWeatherData.xib; sourceTree = "<group>"; };
@@ -434,9 +429,6 @@
 				FD95515E16A1F9C0002B591E /* EAImageData.h */,
 				FD95515F16A1F9C0002B591E /* EAImageData.m */,
 				FD95516016A1F9C0002B591E /* EAImageData.xib */,
-				FD95516116A1F9C0002B591E /* EALoadingView.h */,
-				FD95516216A1F9C0002B591E /* EALoadingView.m */,
-				FD95516316A1F9C0002B591E /* EALoadingView.xib */,
 				FD95516416A1F9C0002B591E /* EAWeatherData.h */,
 				FD95516516A1F9C0002B591E /* EAWeatherData.m */,
 				FD95516616A1F9C0002B591E /* EAWeatherData.xib */,
@@ -587,7 +579,6 @@
 				FD9551CE16A1F9C0002B591E /* DataCell.xib in Resources */,
 				FD9551D016A1F9C0002B591E /* EAClockData.xib in Resources */,
 				FD9551D216A1F9C0002B591E /* EAImageData.xib in Resources */,
-				FD9551D416A1F9C0002B591E /* EALoadingView.xib in Resources */,
 				FD9551D616A1F9C0002B591E /* EAWeatherData.xib in Resources */,
 				FD9551D716A1F9C0002B591E /* InfoPlist.strings in Resources */,
 				FD9551D816A1F9C0002B591E /* ViewController.xib in Resources */,
@@ -621,7 +612,6 @@
 				FD9551CD16A1F9C0002B591E /* DataCell.m in Sources */,
 				FD9551CF16A1F9C0002B591E /* EAClockData.m in Sources */,
 				FD9551D116A1F9C0002B591E /* EAImageData.m in Sources */,
-				FD9551D316A1F9C0002B591E /* EALoadingView.m in Sources */,
 				FD9551D516A1F9C0002B591E /* EAWeatherData.m in Sources */,
 				FD9551DA16A1F9C0002B591E /* ESRASettings.m in Sources */,
 				FD9551DC16A1F9C0002B591E /* MicProgressView.m in Sources */,

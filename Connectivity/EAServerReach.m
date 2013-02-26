@@ -79,7 +79,8 @@
     }
     
     [mainController speak:errorPhrase];
-    [mainController stopMicAnimation];
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
     
 }
 
@@ -101,14 +102,16 @@
     mainController = [[ViewController alloc] init];
     
     EAResponseController* meh = [EAResponseController sharedInstance];
-    [meh addMessage:[NSString stringWithFormat:@"\"%@\"", response]];
+    [meh addMessage:[NSString stringWithFormat:@"\"%@\"", responseStr]];
                                  
     [mainController handleServerResult:responseStr];
     
     NSLog(@"Recieved Response: %@",responseStr);
     
+    [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
     
-    [mainController stopMicAnimation];
+    //[mainController stopMicAnimation];
     
 }
 

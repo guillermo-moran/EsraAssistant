@@ -15,11 +15,8 @@ This version of Esra Assistant, however, is the heavily revamped and entirely re
 - Redesign User Interface
 - Completely get rid of IB?
 
-##Known Issues
+##Known Issues/Blog
 
-- The loader does not disappear from the view after it's finished loading
-- Esra can only listen to you once, it no longer listens after listening once (related to   	issue #1?)
-- Esra does not speak
 - "Show me a picture" does not work
 
 ##Licensing

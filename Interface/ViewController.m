@@ -27,7 +27,36 @@
 #import "EAServerReach.h"
 
 @implementation ViewController
-@synthesize table, cell, isDataView, isResponse, micPlayer;
+@synthesize table, cell, isDataView, isResponse, micPlayer, spinner;
+
+-(void)updateLoader:(NSNotification *)notification {
+    
+    if (spinner) {
+        if (isLoading) {
+            isLoading = NO;
+            spinner.hidden = YES;
+        }
+        else if (!isLoading) {
+            isLoading = YES;
+            spinner.hidden = NO;
+        }
+    }
+    else {
+        [self addLoaderToView];
+        
+        if (isLoading) {
+            isLoading = NO;
+            spinner.hidden = YES;
+        }
+        else if (!isLoading) {
+            isLoading = YES;
+            spinner.hidden = NO;
+        }
+    }
+    
+    
+    
+}
 
 -(void)addLoaderToView {
     
@@ -87,28 +116,32 @@
         [self.view addSubview:spinner];
 
     }
-    [spinner setHidden:YES];
+    
+    [spinner setTag:1337];
+    [[self.view viewWithTag:1337] setHidden:YES];
      
 }
-
+/*
 -(void)startMicAnimation {
 
     //[self addLoaderToView];
     
     NSLog(@"Started Mic Animation");
-    [spinner setHidden:NO];
+    //spinner.hidden = NO;
+    spinner = (UIImageView*) [self.view viewWithTag:1337];
+    spinner.hidden = NO;
     isLoading = YES;
 }
 -(void)stopMicAnimation {
     
-    spinner = nil;
-    
+    NSLog(@"Subviews: %@",[self.view subviews]);
     NSLog(@"Stopped Mic Animation");
     isLoading = NO;
-    [spinner setHidden:YES];
+    spinner = (UIImageView*) [self.view viewWithTag:1337];
+    spinner.hidden = YES;
     
 }
-
+*/
 
 
 
@@ -193,6 +226,7 @@
     
     responseController = [EAResponseController sharedInstance];
     [responseController addMessage:finalTime];
+    [self speak:finalTime];
     
     
     
@@ -209,6 +243,7 @@
     NSString* finalDate = [NSString stringWithFormat:@"Today it is %@", dateString];
     responseController = [EAResponseController sharedInstance];
     [responseController addMessage:finalDate];
+    [self speak:finalDate];
 }
 
 -(IBAction)showTextBox:(id)sender {
@@ -226,20 +261,19 @@
     
     [self analyzeText:inputField.text];
     [sender resignFirstResponder];
-     
-    
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged" object:nil];
 }
     
     
 -(void)analyzeText:(NSString*)recievedString { 
     isResponse = NO;
 
-    
     if ([recievedString hasPrefix:@"tweet"]) {
         NSString* tweetStr = [recievedString stringByReplacingOccurrencesOfString:@"tweet " withString:@""];
         [self sendTweet:tweetStr];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
     }
     else if ([recievedString hasPrefix:@"play song"]) {
         
@@ -250,7 +284,8 @@
         //[songTitle retain];
         [player playSongWithTitle:songTitle];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
         
     }
     else if ([recievedString hasPrefix:@"play "]) {
@@ -261,7 +296,8 @@
         //[songTitle retain];
         [player playSongWithTitle:songTitle];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
     }
     else if ([recievedString hasPrefix:@"pause"]) {
         
@@ -271,7 +307,8 @@
         //[songTitle retain];
         [player pause];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
     }
     else if ([recievedString hasPrefix:@"call me"]) {
      
@@ -286,7 +323,8 @@
      
      [self speak:[NSString stringWithFormat:@"Okay, from now on I will call you %@",nickname]];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
          
      }
      
@@ -297,7 +335,8 @@
         NSURL *url = [NSURL URLWithString:searchURL];
         [[UIApplication sharedApplication] openURL:url];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
         
     }
     else if ([recievedString hasPrefix:@"send text message to"]) {
@@ -317,7 +356,8 @@
         
         [self sendSMS:number];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
         
         
     }
@@ -338,14 +378,16 @@
         
         [self callNumber:number];
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
         
         
     }
     
     else if ([recievedString hasPrefix:@"debug"]) {
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
         
         if ([recievedString hasSuffix:@"on"]) {
             
@@ -393,7 +435,8 @@
     NSString* bundlePath = [NSString stringWithFormat:@"var/mobile/ESRA/Plugins/%@.bundle",recievedString];
     if ([[NSFileManager defaultManager] fileExistsAtPath:bundlePath]) {
         
-        [self stopMicAnimation];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                        object:nil];
         
         NSBundle *pluginBundle = [NSBundle bundleWithPath:bundlePath];
         [pluginBundle load];
@@ -517,13 +560,14 @@
     if (flag) {
         EAGoogleConnect* googleConnect = [[EAGoogleConnect alloc] init];
         [googleConnect submitSpeech];
-        [self startMicAnimation];
+        
     }
     else {
         responseController = [EAResponseController sharedInstance];
         [responseController addMessage:@"Sorry, I didn't catch that. Could you try again?"];
         
     }
+    //[self startMicAnimation];
 }
 
 
@@ -582,6 +626,7 @@
         
         responseController = [EAResponseController sharedInstance];
         [responseController addMessage:[[NSString stringWithFormat:@"It is currently %@ degrees, %@, in %@",weatherData.currentTemp, weatherData.currentConditions, weatherData.city] copy]];
+        [self speak:[[NSString stringWithFormat:@"It is currently %@ degrees, %@, in %@",weatherData.currentTemp, weatherData.currentConditions, weatherData.city] copy]];
         
        
 
@@ -653,7 +698,8 @@
         [self speak:response];
     }
     NSLog(@"Recieved Response from Server: %@",response);
-    [self stopMicAnimation];
+    isResponse = YES;
+    //[[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged" object:nil];
     
     
     
@@ -812,6 +858,12 @@
                                                  name:@"TableDataChanged"
                                                object:nil];
     
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(updateLoader:)
+                                                 name:@"loadingStateChanged"
+                                               object:nil];
+    
+    
     NSString* welcomeStr;
     
     
@@ -830,8 +882,7 @@
     isResponse = YES;
     [self addMessage:welcomeStr];
     
-    
-    
+
     [self loadAudioSession];
     
     if ([EADataHandler listenOnLaunch]) {

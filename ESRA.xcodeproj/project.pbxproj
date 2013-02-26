@@ -22,8 +22,7 @@
 		FD95518A16A1F9C0002B591E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510316A1F9C0002B591E /* AppDelegate.m */; };
 		FD95518B16A1F9C0002B591E /* EADataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510516A1F9C0002B591E /* EADataHandler.m */; };
 		FD95518C16A1F9C0002B591E /* EAMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510716A1F9C0002B591E /* EAMusicPlayer.m */; };
-		FD95518D16A1F9C0002B591E /* EASpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510A16A1F9C0002B591E /* EASpeaker.m */; };
-		FD95518E16A1F9C0002B591E /* SystemOperationPerformer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510C16A1F9C0002B591E /* SystemOperationPerformer.m */; };
+		FD95518D16A1F9C0002B591E /* EASpeaker.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510A16A1F9C0002B591E /* EASpeaker.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		FD95518F16A1F9C0002B591E /* EAGoogleConnect.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95511016A1F9C0002B591E /* EAGoogleConnect.m */; };
 		FD95519016A1F9C0002B591E /* EAResponseController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95511216A1F9C0002B591E /* EAResponseController.m */; };
 		FD95519116A1F9C0002B591E /* EAServerReach.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95511416A1F9C0002B591E /* EAServerReach.m */; };
@@ -103,6 +102,7 @@
 		FD9551ED16A1F9C0002B591E /* stop-rec.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD95518916A1F9C0002B591E /* stop-rec.mp3 */; };
 		FD9551F416A1FA0A002B591E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9551F116A1FA0A002B591E /* main.m */; };
 		FD9551F716A1FA9D002B591E /* EATranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9551F616A1FA9D002B591E /* EATranslator.m */; };
+		FDC4DA5016DC4741001D57AF /* VoiceServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC4DA4F16DC4741001D57AF /* VoiceServices.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -128,8 +128,6 @@
 		FD95510816A1F9C0002B591E /* EAPlugin.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAPlugin.h; sourceTree = "<group>"; };
 		FD95510916A1F9C0002B591E /* EASpeaker.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EASpeaker.h; sourceTree = "<group>"; };
 		FD95510A16A1F9C0002B591E /* EASpeaker.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EASpeaker.m; sourceTree = "<group>"; };
-		FD95510B16A1F9C0002B591E /* SystemOperationPerformer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SystemOperationPerformer.h; sourceTree = "<group>"; };
-		FD95510C16A1F9C0002B591E /* SystemOperationPerformer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SystemOperationPerformer.m; sourceTree = "<group>"; };
 		FD95510D16A1F9C0002B591E /* VSSpeechSynthesizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VSSpeechSynthesizer.h; sourceTree = "<group>"; };
 		FD95510F16A1F9C0002B591E /* EAGoogleConnect.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAGoogleConnect.h; sourceTree = "<group>"; };
 		FD95511016A1F9C0002B591E /* EAGoogleConnect.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAGoogleConnect.m; sourceTree = "<group>"; };
@@ -227,6 +225,7 @@
 		FD9551F216A1FA0A002B591E /* UIKit-Structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit-Structs.h"; sourceTree = "<group>"; };
 		FD9551F516A1FA9D002B591E /* EATranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATranslator.h; sourceTree = "<group>"; };
 		FD9551F616A1FA9D002B591E /* EATranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATranslator.m; sourceTree = "<group>"; };
+		FDC4DA4F16DC4741001D57AF /* VoiceServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VoiceServices.framework; path = Frameworks/VoiceServices.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +242,7 @@
 				FD621008147E01380026DCB7 /* UIKit.framework in Frameworks */,
 				FD62100A147E01380026DCB7 /* Foundation.framework in Frameworks */,
 				FD62100C147E01380026DCB7 /* CoreGraphics.framework in Frameworks */,
+				FDC4DA5016DC4741001D57AF /* VoiceServices.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -274,6 +274,7 @@
 		FD621006147E01380026DCB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FDC4DA4F16DC4741001D57AF /* VoiceServices.framework */,
 				FD5C3235156DC53D00DEEFF4 /* MediaPlayer.framework */,
 				FD1689C21566B8D3007EA2C9 /* QuartzCore.framework */,
 				FD2436E414F9BD7D00BBC18C /* AudioToolbox.framework */,
@@ -299,8 +300,6 @@
 				FD95510816A1F9C0002B591E /* EAPlugin.h */,
 				FD95510916A1F9C0002B591E /* EASpeaker.h */,
 				FD95510A16A1F9C0002B591E /* EASpeaker.m */,
-				FD95510B16A1F9C0002B591E /* SystemOperationPerformer.h */,
-				FD95510C16A1F9C0002B591E /* SystemOperationPerformer.m */,
 				FD9551F516A1FA9D002B591E /* EATranslator.h */,
 				FD9551F616A1FA9D002B591E /* EATranslator.m */,
 				FD95510D16A1F9C0002B591E /* VSSpeechSynthesizer.h */,
@@ -605,7 +604,6 @@
 				FD95518B16A1F9C0002B591E /* EADataHandler.m in Sources */,
 				FD95518C16A1F9C0002B591E /* EAMusicPlayer.m in Sources */,
 				FD95518D16A1F9C0002B591E /* EASpeaker.m in Sources */,
-				FD95518E16A1F9C0002B591E /* SystemOperationPerformer.m in Sources */,
 				FD95518F16A1F9C0002B591E /* EAGoogleConnect.m in Sources */,
 				FD95519016A1F9C0002B591E /* EAResponseController.m in Sources */,
 				FD95519116A1F9C0002B591E /* EAServerReach.m in Sources */,

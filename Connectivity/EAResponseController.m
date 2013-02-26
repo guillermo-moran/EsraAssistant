@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "EAResponseController.h"
+#import "EASpeaker.h"
 
 
 
@@ -90,9 +91,9 @@ static EAResponseController *sharedInstance = nil;
         return;
     }
     
-    if ([message hasPrefix:@"\n\n\n\n\n"]) {
-        message = [message stringByReplacingOccurrencesOfString:@"\n\n\n\n\n\n" withString:@""];
-    }
+    //if ([message hasPrefix:@"\n\n\n\n\n"]) {
+     //   message = [message stringByReplacingOccurrencesOfString:@"\n\n\n\n\n\n" withString:@""];
+    //}
     
     if ([message isEqualToString:@""]) {
         message = @"I don't know";
@@ -109,6 +110,7 @@ static EAResponseController *sharedInstance = nil;
                                                         object:nil];
     
     NSLog(@"List of messages array: %@", self.messagesArray);
+    
 }
 
 
@@ -124,6 +126,7 @@ static EAResponseController *sharedInstance = nil;
  
      [[NSNotificationCenter defaultCenter] postNotificationName:@"TableDataChanged"
                                                          object:nil];
+    
  
  
  //}

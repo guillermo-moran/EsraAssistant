@@ -10,4 +10,6 @@
 
 @implementation EATranslator
 
+//This will be written later.
+
 @end

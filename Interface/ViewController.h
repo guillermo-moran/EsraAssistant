@@ -39,7 +39,7 @@
     
     //Microphone
     MicProgressView* micDetector;
-    UIImageView* spinner;
+    IBOutlet UIImageView* spinner;
     
     
     
@@ -79,8 +79,9 @@
 }
 
 //Microphone
--(void)startMicAnimation;
--(void)stopMicAnimation;
+-(void)updateLoader:(NSNotification *)notification;
+//-(void)startMicAnimation;
+//-(void)stopMicAnimation;
 -(void)addLoaderToView;
 
 //Voice Recognition
@@ -125,6 +126,7 @@
 @property (nonatomic,strong) IBOutlet UITableView* table;
 
 @property (nonatomic,strong) AVAudioPlayer* micPlayer;
+@property (nonatomic,strong) IBOutlet UIImageView* spinner;
 
 
 @end

@@ -29,7 +29,7 @@
     if (setLanguage == 0) {
         languageID = @"en-US";
     }
-    else if (setLanguage == 1) {
+    if (setLanguage == 1) {
         languageID = @"es-MX";
     }
     

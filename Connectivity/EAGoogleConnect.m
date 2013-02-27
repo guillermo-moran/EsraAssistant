@@ -44,7 +44,10 @@
     }
     
     
-    NSString* googleSpeechURL = [NSString stringWithFormat:@"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=%@",countryID];
+   //NSString* googleSpeechURL = [NSString stringWithFormat:@"https://www.google.com/speech-api/v1/recognize?xjerr=1&client=chromium&lang=%@",countryID];
+    
+    //disable censor
+    NSString *googleSpeechURL = [NSString stringWithFormat:@"http://www.google.com/speech-api/v1/recognize?xjerr=1&pfilter=0&client=chromium&lang=%@",countryID];
     
     NSMutableURLRequest *request = [[NSMutableURLRequest alloc]
                                     initWithURL:[NSURL URLWithString:googleSpeechURL]];
@@ -81,7 +84,10 @@
 }
 - (void)connection:(NSURLConnection *)aConn didFailWithError:(NSError *)error {
     [mainController speak:@"I was unable to connect to the server at this time. Try again?"];
-    [mainController addMessage:[error localizedDescription]];
+    
+    EAResponseController* responseController = [EAResponseController sharedInstance];
+    [responseController addMessage:@"I was unable to connect to the server at this time. Try again?"];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
                                                         object:nil];
 }
@@ -101,7 +107,12 @@
         [responseController addMessage:gspeech];
     }
     @catch (NSException *exception) {
+        
         [mainController speak:@"Sorry, I didn't catch that. Could you try again?"];
+        
+        EAResponseController* responseController = [EAResponseController sharedInstance];
+        
+        [responseController addMessage:@"Sorry, I didn't catch that. Could you try again?"];
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
                                                             object:nil];
     }

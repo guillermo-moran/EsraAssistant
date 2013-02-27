@@ -21,14 +21,11 @@
     
     NSString* url;
     
-    
-    
     //NSString* nickname = [dataHandler nickname];
     //NSString* wolframAlphaKey = [dataHandler wolframKey];
     
     if ([EADataHandler setLanguage] == 0) {
          url = @"http://fr0stdev.cz.cc/ESRA/ESRA_Server-EN.php";
-        //url = @"http://www.imokhles.com/Server_Example.php";
     }
     else if ([EADataHandler setLanguage] == 1) {
         url = @"http://fr0stdev.cz.cc/ESRA/ESRA_Server-ES.php";
@@ -79,6 +76,10 @@
     }
     
     [mainController speak:errorPhrase];
+    
+    EAResponseController* responseController = [EAResponseController sharedInstance];
+    [responseController addMessage:errorPhrase];
+    
     [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
                                                         object:nil];
     

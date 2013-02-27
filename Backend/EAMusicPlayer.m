@@ -8,6 +8,7 @@
 
 #import "EAMusicPlayer.h"
 #import "ViewController.h"
+#import "EAResponseController.h"
 
 @implementation EAMusicPlayer
 
@@ -36,8 +37,14 @@
     if (![[myPlayer.nowPlayingItem valueForProperty:MPMediaItemPropertyTitle] length] == 0) {
         [vc speak:[NSString stringWithFormat:@"Now playing song: %@",[myPlayer.nowPlayingItem valueForProperty:MPMediaItemPropertyTitle]]];
         
+        EAResponseController* responseController = [EAResponseController sharedInstance];
+        
+        [responseController addMessage:[NSString stringWithFormat:@"Now playing song: %@",[myPlayer.nowPlayingItem valueForProperty:MPMediaItemPropertyTitle]]];
+        
     }
     else {
+        EAResponseController* responseController = [EAResponseController sharedInstance];
+        [responseController addMessage:@"No Match Found."];
         [vc speak:@"No Match Found"];
     }
     

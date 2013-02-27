@@ -91,9 +91,9 @@ static EAResponseController *sharedInstance = nil;
         return;
     }
     
-    //if ([message hasPrefix:@"\n\n\n\n\n"]) {
-     //   message = [message stringByReplacingOccurrencesOfString:@"\n\n\n\n\n\n" withString:@""];
-    //}
+    if ([message hasPrefix:@"\"\n\n\n\n\n"]) {
+        message = [message stringByReplacingOccurrencesOfString:@"\n\n\n\n\n\n" withString:@""];
+    }
     
     if ([message isEqualToString:@""]) {
         message = @"I don't know";

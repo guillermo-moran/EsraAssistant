@@ -51,9 +51,29 @@
     
     if (![[NSUserDefaults standardUserDefaults]
           boolForKey:@"SetupIsDone"]) {
-        ViewController* home = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
-        home.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-        [self presentModalViewController:home animated:YES];
+        
+        if (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPad) {
+            
+            ViewController* assistantViewController = [[ViewController alloc] initWithNibName:@"AssistantView-iPad" bundle:nil];
+            [self presentModalViewController:assistantViewController animated:YES];
+            
+        }
+        else {
+            
+            if([UIScreen mainScreen].bounds.size.height == 568) {
+                
+                ViewController* assistantViewController = [[ViewController alloc] initWithNibName:@"ViewController-i5" bundle:nil];
+                [self presentModalViewController:assistantViewController animated:YES];
+                
+            }
+            
+            else {
+                
+                ViewController* assistantViewController = [[ViewController alloc] initWithNibName:@"ViewController" bundle:nil];
+                [self presentModalViewController:assistantViewController animated:YES];
+                
+            }
+        }
     }
     
     [self dismissModalViewControllerAnimated:YES];

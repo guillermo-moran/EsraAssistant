@@ -312,16 +312,17 @@
     }
     else if ([recievedString hasPrefix:@"call me"]) {
      
-     nickname = [recievedString stringByReplacingOccurrencesOfString:@"call me" withString:@""];
+        nickname = [recievedString stringByReplacingOccurrencesOfString:@"call me" withString:@""];
      
-     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
-     [defaults setObject:nickname forKey:@"NickName"];
-     [defaults synchronize];
+        NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
+        [defaults setObject:nickname forKey:@"NickName"];
+        [defaults synchronize];
      
      
-     [self addMessage:[NSString stringWithFormat:@"%@",recievedString]];
-     
-     [self speak:[NSString stringWithFormat:@"Okay, from now on I will call you %@",nickname]];
+        [self addMessage:[NSString stringWithFormat:@"%@",recievedString]];
+        
+        [self speak:[NSString stringWithFormat:@"Okay, from now on I will call you %@",nickname]];
+        [self addMessage:[NSString stringWithFormat:@"Okay, from now on I will call you %@",nickname]];
         
         [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
                                                         object:nil];
@@ -394,6 +395,7 @@
             [[NSUserDefaults standardUserDefaults] setBool:YES forKey:@"debug_is_on"];
             debugModeEnabled = YES;
             [self speak:@"Debug mode is now enabled"];
+            [self addMessage:@"Debug mode is now enabled"];
             
         }
         else if ([recievedString hasSuffix:@"off"]) {
@@ -401,10 +403,12 @@
             [[NSUserDefaults standardUserDefaults] setBool:NO forKey:@"debug_is_on"];
             debugModeEnabled = NO;
             [self speak:@"Debug mode is now disabled"];
+            [self addMessage:@"Debug mode is now disabled"];
             
         }
         else
             [self speak:@"Debug mode help: Warning, for testing purposes only. Debug mode may be buggy. Some of these new features are untested or buggy and issues may arise. To enable, say \"debug on\". To disable, say \"debug off\"."];
+            [self addMessage:@"Debug mode help: Warning, for testing purposes only. Debug mode may be buggy. Some of these new features are untested or buggy and issues may arise. To enable, say \"debug on\". To disable, say \"debug off\"."];
     }
     
     else {

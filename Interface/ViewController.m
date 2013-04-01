@@ -23,6 +23,8 @@
 #import "EADataHandler.h"
 #import "EAResponseController.h"
 
+#import "EAApplicationController.h"
+
 #import "EAGoogleConnect.h"
 #import "EAServerReach.h"
 
@@ -208,9 +210,6 @@
 }
 
 
--(void)openApp:(NSString*)appName {
-    
-}
 
 
 -(void)getTime {
@@ -340,6 +339,18 @@
                                                         object:nil];
         
     }
+    
+    //Experimental
+    else if ([recievedString hasPrefix:@"open"]) {
+        
+        EAApplicationController* apps = [[EAApplicationController alloc] init];
+        
+        NSString *appName = [recievedString stringByReplacingOccurrencesOfString:@"open " withString:@""];
+        
+        [apps openApplicationWithName:[appName lowercaseString]];
+        
+    }
+    
     else if ([recievedString hasPrefix:@"send text message to"]) {
         NSString* removedCommand = [recievedString stringByReplacingOccurrencesOfString:@"send text message to " withString:@""];
         

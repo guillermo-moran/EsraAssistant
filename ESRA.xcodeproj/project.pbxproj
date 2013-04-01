@@ -13,12 +13,12 @@
 		FD356A8816D44D4000F0C26F /* ViewController-i5.xib in Resources */ = {isa = PBXBuildFile; fileRef = FD356A8716D44D4000F0C26F /* ViewController-i5.xib */; };
 		FD356A8D16D44EC500F0C26F /* Background-i5.png in Resources */ = {isa = PBXBuildFile; fileRef = FD356A8B16D44EC500F0C26F /* Background-i5.png */; };
 		FD356A8E16D44EC500F0C26F /* Background-i5@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = FD356A8C16D44EC500F0C26F /* Background-i5@2x.png */; };
+		FD3D48E81709013700AB7DD5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD3D48E71709013700AB7DD5 /* UIKit.framework */; };
 		FD5C3236156DC53D00DEEFF4 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD5C3235156DC53D00DEEFF4 /* MediaPlayer.framework */; };
-		FD621008147E01380026DCB7 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD621007147E01380026DCB7 /* UIKit.framework */; };
-		FD62100A147E01380026DCB7 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD621009147E01380026DCB7 /* Foundation.framework */; };
 		FD62100C147E01380026DCB7 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD62100B147E01380026DCB7 /* CoreGraphics.framework */; };
 		FD62113A147E02760026DCB7 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD621139147E02760026DCB7 /* AVFoundation.framework */; };
 		FD71F1951482A80800BF89D7 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FD71F1941482A80800BF89D7 /* MessageUI.framework */; };
+		FD850E1E16E2E9EC00B4E599 /* EAApplicationController.m in Sources */ = {isa = PBXBuildFile; fileRef = FD850E1D16E2E9EC00B4E599 /* EAApplicationController.m */; };
 		FD95518A16A1F9C0002B591E /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510316A1F9C0002B591E /* AppDelegate.m */; };
 		FD95518B16A1F9C0002B591E /* EADataHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510516A1F9C0002B591E /* EADataHandler.m */; };
 		FD95518C16A1F9C0002B591E /* EAMusicPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FD95510716A1F9C0002B591E /* EAMusicPlayer.m */; };
@@ -102,6 +102,7 @@
 		FD9551ED16A1F9C0002B591E /* stop-rec.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = FD95518916A1F9C0002B591E /* stop-rec.mp3 */; };
 		FD9551F416A1FA0A002B591E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9551F116A1FA0A002B591E /* main.m */; };
 		FD9551F716A1FA9D002B591E /* EATranslator.m in Sources */ = {isa = PBXBuildFile; fileRef = FD9551F616A1FA9D002B591E /* EATranslator.m */; };
+		FDC1DF1A1708FD1D003DAEC1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC1DF191708FD1D003DAEC1 /* Foundation.framework */; };
 		FDC4DA5016DC4741001D57AF /* VoiceServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FDC4DA4F16DC4741001D57AF /* VoiceServices.framework */; };
 /* End PBXBuildFile section */
 
@@ -112,13 +113,15 @@
 		FD356A8716D44D4000F0C26F /* ViewController-i5.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = "ViewController-i5.xib"; sourceTree = "<group>"; };
 		FD356A8B16D44EC500F0C26F /* Background-i5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-i5.png"; sourceTree = "<group>"; };
 		FD356A8C16D44EC500F0C26F /* Background-i5@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Background-i5@2x.png"; sourceTree = "<group>"; };
+		FD3D48E71709013700AB7DD5 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
 		FD5C3235156DC53D00DEEFF4 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		FD621003147E01380026DCB7 /* ESRA.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ESRA.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		FD621007147E01380026DCB7 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
-		FD621009147E01380026DCB7 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FD62100B147E01380026DCB7 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		FD621139147E02760026DCB7 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		FD71F1941482A80800BF89D7 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		FD850E1C16E2E9EC00B4E599 /* EAApplicationController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EAApplicationController.h; sourceTree = "<group>"; };
+		FD850E1D16E2E9EC00B4E599 /* EAApplicationController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EAApplicationController.m; sourceTree = "<group>"; };
+		FD850E1F16E2EC8600B4E599 /* ESRA.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.xml; path = ESRA.entitlements; sourceTree = "<group>"; };
 		FD95510216A1F9C0002B591E /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		FD95510316A1F9C0002B591E /* AppDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		FD95510416A1F9C0002B591E /* EADataHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EADataHandler.h; sourceTree = "<group>"; };
@@ -225,6 +228,7 @@
 		FD9551F216A1FA0A002B591E /* UIKit-Structs.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIKit-Structs.h"; sourceTree = "<group>"; };
 		FD9551F516A1FA9D002B591E /* EATranslator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EATranslator.h; sourceTree = "<group>"; };
 		FD9551F616A1FA9D002B591E /* EATranslator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EATranslator.m; sourceTree = "<group>"; };
+		FDC1DF191708FD1D003DAEC1 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FDC4DA4F16DC4741001D57AF /* VoiceServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VoiceServices.framework; path = Frameworks/VoiceServices.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -233,14 +237,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FD3D48E81709013700AB7DD5 /* UIKit.framework in Frameworks */,
+				FDC1DF1A1708FD1D003DAEC1 /* Foundation.framework in Frameworks */,
 				FD5C3236156DC53D00DEEFF4 /* MediaPlayer.framework in Frameworks */,
 				FD1689C31566B8D3007EA2C9 /* QuartzCore.framework in Frameworks */,
 				FD2436E514F9BD7D00BBC18C /* AudioToolbox.framework in Frameworks */,
 				FD212FD014A512D50065F559 /* Twitter.framework in Frameworks */,
 				FD71F1951482A80800BF89D7 /* MessageUI.framework in Frameworks */,
 				FD62113A147E02760026DCB7 /* AVFoundation.framework in Frameworks */,
-				FD621008147E01380026DCB7 /* UIKit.framework in Frameworks */,
-				FD62100A147E01380026DCB7 /* Foundation.framework in Frameworks */,
 				FD62100C147E01380026DCB7 /* CoreGraphics.framework in Frameworks */,
 				FDC4DA5016DC4741001D57AF /* VoiceServices.framework in Frameworks */,
 			);
@@ -274,6 +278,8 @@
 		FD621006147E01380026DCB7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FD3D48E71709013700AB7DD5 /* UIKit.framework */,
+				FDC1DF191708FD1D003DAEC1 /* Foundation.framework */,
 				FDC4DA4F16DC4741001D57AF /* VoiceServices.framework */,
 				FD5C3235156DC53D00DEEFF4 /* MediaPlayer.framework */,
 				FD1689C21566B8D3007EA2C9 /* QuartzCore.framework */,
@@ -281,8 +287,6 @@
 				FD212FCF14A512D40065F559 /* Twitter.framework */,
 				FD71F1941482A80800BF89D7 /* MessageUI.framework */,
 				FD621139147E02760026DCB7 /* AVFoundation.framework */,
-				FD621007147E01380026DCB7 /* UIKit.framework */,
-				FD621009147E01380026DCB7 /* Foundation.framework */,
 				FD62100B147E01380026DCB7 /* CoreGraphics.framework */,
 			);
 			name = Frameworks;
@@ -291,6 +295,8 @@
 		FD95510116A1F9C0002B591E /* Backend */ = {
 			isa = PBXGroup;
 			children = (
+				FD850E1C16E2E9EC00B4E599 /* EAApplicationController.h */,
+				FD850E1D16E2E9EC00B4E599 /* EAApplicationController.m */,
 				FD95510216A1F9C0002B591E /* AppDelegate.h */,
 				FD95510316A1F9C0002B591E /* AppDelegate.m */,
 				FD95510416A1F9C0002B591E /* EADataHandler.h */,
@@ -463,6 +469,7 @@
 		FD9551EE16A1FA0A002B591E /* ESRA */ = {
 			isa = PBXGroup;
 			children = (
+				FD850E1F16E2EC8600B4E599 /* ESRA.entitlements */,
 				FD9551EF16A1FA0A002B591E /* ESRA-Info.plist */,
 				FD9551F016A1FA0A002B591E /* ESRA-Prefix.pch */,
 				FD9551F116A1FA0A002B591E /* main.m */,
@@ -617,6 +624,7 @@
 				FD9551DF16A1F9C0002B591E /* ViewController.m in Sources */,
 				FD9551F416A1FA0A002B591E /* main.m in Sources */,
 				FD9551F716A1FA9D002B591E /* EATranslator.m in Sources */,
+				FD850E1E16E2E9EC00B4E599 /* EAApplicationController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -646,10 +654,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -666,7 +671,7 @@
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -682,10 +687,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = (
-					armv6,
-					"$(ARCHS_STANDARD_32_BIT)",
-				);
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
@@ -695,7 +697,7 @@
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_THUMB_SUPPORT = NO;
-				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_VERSION = "";
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
@@ -714,6 +716,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ESRA/ESRA.entitlements;
+				CODE_SIGN_IDENTITY = "Guillermo Moran";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Guillermo Moran";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -734,7 +739,10 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/VoiceServices.framework\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ESRA;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};
@@ -745,6 +753,9 @@
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CODE_SIGN_ENTITLEMENTS = ESRA/ESRA.entitlements;
+				CODE_SIGN_IDENTITY = "Guillermo Moran";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "Guillermo Moran";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)\"",
@@ -765,7 +776,10 @@
 					"\"$(SRCROOT)\"",
 					"\"$(SDKROOT)$(SYSTEM_LIBRARY_DIR)/PrivateFrameworks/VoiceServices.framework\"",
 				);
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = ESRA;
+				PROVISIONING_PROFILE = "";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "";
 				TARGETED_DEVICE_FAMILY = "1,2";
 				WRAPPER_EXTENSION = app;
 			};

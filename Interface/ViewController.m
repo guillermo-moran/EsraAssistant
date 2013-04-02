@@ -349,6 +349,14 @@
         
         [apps openApplicationWithName:[appName lowercaseString]];
         
+        [self addMessage:recievedString];
+        
+        [self speak:[NSString stringWithFormat:@"Opening App: %@", appName]];
+        [self addMessage:@"Debug mode is now enabled"];
+        
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"loadingStateChanged"
+                                                            object:nil];
+        
     }
     
     else if ([recievedString hasPrefix:@"send text message to"]) {
